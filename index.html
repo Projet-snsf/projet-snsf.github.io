@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forêts Ivoiriennes sur Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 500px; }
+        .leaflet-popup-content-wrapper {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Forêts Ivoiriennes sur Leaflet</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([5.3617, -4.0083], 8); // Vue initiale sur Abidjan
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // GeoJSON des forêts ivoiriennes
+        var forests = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.0853, 5.3168],
+                            [-4.0792, 5.3168],
+                            [-4.0792, 5.3231],
+                            [-4.0853, 5.3231],
+                            [-4.0853, 5.3168]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt du Banco",
+                        "area": "30 km²",
+                        "description": "Une grande forêt près d'Abidjan, connue pour sa biodiversité."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.0821, 5.3284],
+                            [-4.0781, 5.3284],
+                            [-4.0781, 5.3348],
+                            [-4.0821, 5.3348],
+                            [-4.0821, 5.3284]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt de Yamoussoukro",
+                        "area": "25 km²",
+                        "description": "Une forêt située près de Yamoussoukro, la capitale politique."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-3.9951, 5.3097],
+                            [-3.9901, 5.3097],
+                            [-3.9901, 5.3150],
+                            [-3.9951, 5.3150],
+                            [-3.9951, 5.3097]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt de Man",
+                        "area": "20 km²",
+                        "description": "Une forêt située dans la région de Man, connue pour ses montagnes."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.1123, 5.3291],
+                            [-4.1073, 5.3291],
+                            [-4.1073, 5.3342],
+                            [-4.1123, 5.3342],
+                            [-4.1123, 5.3291]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt d'Abengourou",
+                        "area": "22 km²",
+                        "description": "Une forêt située près d'Abengourou, riche en faune et flore."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.1214, 5.3172],
+                            [-4.1164, 5.3172],
+                            [-4.1164, 5.3223],
+                            [-4.1214, 5.3223],
+                            [-4.1214, 5.3172]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt de Bouaké",
+                        "area": "18 km²",
+                        "description": "Une forêt près de Bouaké, importante pour les réserves d'eau."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.0987, 5.3228],
+                            [-4.0937, 5.3228],
+                            [-4.0937, 5.3280],
+                            [-4.0987, 5.3280],
+                            [-4.0987, 5.3228]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt de San Pedro",
+                        "area": "27 km²",
+                        "description": "Une forêt dans la région de San Pedro, connue pour ses produits forestiers."
+                    }
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[
+                            [-4.0805, 5.3125],
+                            [-4.0755, 5.3125],
+                            [-4.0755, 5.3176],
+                            [-4.0805, 5.3176],
+                            [-4.0805, 5.3125]
+                        ]]
+                    },
+                    "properties": {
+                        "name": "Forêt de Katiola",
+                        "area": "15 km²",
+                        "description": "Une petite forêt située à Katiola, connue pour ses ressources naturelles."
+                    }
+                }
+            ]
+        };
+
+        L.geoJSON(forests, {
+            onEachFeature: function (feature, layer) {
+                if (feature.properties && feature.properties.name) {
+                    layer.bindPopup('<b>' + feature.properties.name + '</b><br>Surface: ' + feature.properties.area + '<br>' + feature.properties.description);
+                }
+            }
+        }).addTo(map);
+    </script>
+
+</body>
+</html>
