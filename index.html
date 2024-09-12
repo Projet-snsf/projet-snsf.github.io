@@ -3,169 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forêts Ivoiriennes sur Leaflet</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Points de Discussion</title>
     <style>
-        #map { height: 500px; }
-        .leaflet-popup-content-wrapper {
-            width: 200px;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        .point {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .point:hover {
+            transform: translateY(-5px);
+        }
+        .point h2 {
+            font-size: 18px;
+            color: #4CAF50;
+            margin-bottom: 15px;
+            border-left: 5px solid #4CAF50;
+            padding-left: 10px;
+        }
+        .point ul {
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+        .point ul li {
+            font-size: 15px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Forêts Ivoiriennes sur Leaflet</h1>
-    <div id="map"></div>
+    <h1>Points de Discussion</h1>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([5.3617, -4.0083], 8); // Vue initiale sur Abidjan
+    <div class="point">
+        <h2>Niveaux d'accès à la plateforme</h2>
+        <ul>
+            <li>Types de comptes : Administrateur, Agent terrain, Agent photo-interprète, Partenaire, Utilisateur public.</li>
+            <li>Droits : Accès aux données spécifiques, validation des alertes, génération de rapports.</li>
+        </ul>
+    </div>
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+    <div class="point">
+        <h2>Types de notification et canaux</h2>
+        <ul>
+            <li>Canaux : Email, SMS, notifications push (pour l'application mobile).</li>
+            <li>Types : Alertes de déforestation, notifications de validation ou de rejet, rappels pour missions terrain.</li>
+        </ul>
+    </div>
 
-        // GeoJSON des forêts ivoiriennes
-        var forests = {
-            "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.0853, 5.3168],
-                            [-4.0792, 5.3168],
-                            [-4.0792, 5.3231],
-                            [-4.0853, 5.3231],
-                            [-4.0853, 5.3168]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt du Banco",
-                        "area": "30 km²",
-                        "description": "Une grande forêt près d'Abidjan, connue pour sa biodiversité."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.0821, 5.3284],
-                            [-4.0781, 5.3284],
-                            [-4.0781, 5.3348],
-                            [-4.0821, 5.3348],
-                            [-4.0821, 5.3284]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt de Yamoussoukro",
-                        "area": "25 km²",
-                        "description": "Une forêt située près de Yamoussoukro, la capitale politique."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-3.9951, 5.3097],
-                            [-3.9901, 5.3097],
-                            [-3.9901, 5.3150],
-                            [-3.9951, 5.3150],
-                            [-3.9951, 5.3097]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt de Man",
-                        "area": "20 km²",
-                        "description": "Une forêt située dans la région de Man, connue pour ses montagnes."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.1123, 5.3291],
-                            [-4.1073, 5.3291],
-                            [-4.1073, 5.3342],
-                            [-4.1123, 5.3342],
-                            [-4.1123, 5.3291]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt d'Abengourou",
-                        "area": "22 km²",
-                        "description": "Une forêt située près d'Abengourou, riche en faune et flore."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.1214, 5.3172],
-                            [-4.1164, 5.3172],
-                            [-4.1164, 5.3223],
-                            [-4.1214, 5.3223],
-                            [-4.1214, 5.3172]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt de Bouaké",
-                        "area": "18 km²",
-                        "description": "Une forêt près de Bouaké, importante pour les réserves d'eau."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.0987, 5.3228],
-                            [-4.0937, 5.3228],
-                            [-4.0937, 5.3280],
-                            [-4.0987, 5.3280],
-                            [-4.0987, 5.3228]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt de San Pedro",
-                        "area": "27 km²",
-                        "description": "Une forêt dans la région de San Pedro, connue pour ses produits forestiers."
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [-4.0805, 5.3125],
-                            [-4.0755, 5.3125],
-                            [-4.0755, 5.3176],
-                            [-4.0805, 5.3176],
-                            [-4.0805, 5.3125]
-                        ]]
-                    },
-                    "properties": {
-                        "name": "Forêt de Katiola",
-                        "area": "15 km²",
-                        "description": "Une petite forêt située à Katiola, connue pour ses ressources naturelles."
-                    }
-                }
-            ]
-        };
+    <div class="point">
+        <h2>Tables et relations</h2>
+        <ul>
+            <li>Revoir la structure de la base de données, notamment les relations entre les tables clés : alertes, utilisateurs, photos, et historique.</li>
+        </ul>
+    </div>
 
-        L.geoJSON(forests, {
-            onEachFeature: function (feature, layer) {
-                if (feature.properties && feature.properties.name) {
-                    layer.bindPopup('<b>' + feature.properties.name + '</b><br>Surface: ' + feature.properties.area + '<br>' + feature.properties.description);
-                }
-            }
-        }).addTo(map);
-    </script>
+    <div class="point">
+        <h2>Choix du serveur d'hébergement</h2>
+        <ul>
+            <li>AWS : Scalabilité, gestion des données, coûts.</li>
+            <li>GCP : IA intégrée, stockage performant.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Formulaires de rapports app et photo</h2>
+        <ul>
+            <li>Structurer les formulaires de collecte de données terrain et photo pour être à la fois complets et rapides à remplir.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Mise en place d'un serveur beta pour les prototypes</h2>
+        <ul>
+            <li>Proposer un environnement isolé pour tester les nouvelles fonctionnalités avant de les déployer en production.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Sorties du modèle IA</h2>
+        <ul>
+            <li>Visualisation des alertes sous forme de points (plus précis pour petits incidents) ou de polygones (grandes zones).</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Système d'exploration des forêts</h2>
+        <ul>
+            <li>Interface pour visualiser les forêts et filtrer par zones d'intérêt avec des couches spécifiques (NDVI, état des alertes, etc.).</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Rapport photo interprétation et agent terrain</h2>
+        <ul>
+            <li>Standardisation des rapports avec photos annotées, observations terrain et validation des alertes.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Mise en place d'un système de vérification automatique</h2>
+        <ul>
+            <li>Automatisation partielle des vérifications d'alertes basées sur des seuils de confiance du modèle IA.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Intégration d'un traceur pour les agents</h2>
+        <ul>
+            <li>Suivi GPS des agents de terrain lors de leurs missions pour une meilleure organisation et sécurité.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Système de grille pour les grandes forêts</h2>
+        <ul>
+            <li>Diviser les grandes zones forestières en sous-sections pour une gestion plus précise des alertes.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Disponibilité des canaux de collaboration</h2>
+        <ul>
+            <li>Outils de collaboration (Slack, Teams, etc.) pour faciliter la communication entre équipes sur le projet.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Stockage des documents et APK du système</h2>
+        <ul>
+            <li>Choisir un service de stockage centralisé pour les APK, manuels utilisateurs, et autres documents techniques.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Système de récupération et de stockage des images</h2>
+        <ul>
+            <li>Pipeline pour récupérer les images satellites de manière régulière et les stocker efficacement.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Système de calcul et visualisation des NDVI</h2>
+        <ul>
+            <li>Mettre en place des algorithmes pour calculer et afficher les indices NDVI pour une meilleure analyse des forêts.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Capture des remarques (Fabrice.js)</h2>
+        <ul>
+            <li>Intégration d'un module pour permettre aux utilisateurs de laisser des commentaires ou annotations via Fabrice.js.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>OPT ou code pour les inscriptions</h2>
+        <ul>
+            <li>Ajouter une étape de vérification via OTP ou code de validation pour sécuriser les nouvelles inscriptions.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Newsletter</h2>
+        <ul>
+            <li>Création d'une newsletter pour tenir les utilisateurs informés des nouvelles fonctionnalités et alertes importantes.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Besoins en données</h2>
+        <ul>
+            <li>Identifier les sources de données critiques (images satellites, données d'occupation des sols, etc.) et planifier leur intégration.</li>
+        </ul>
+    </div>
+
+    <div class="point">
+        <h2>Livrables et délais</h2>
+        <ul>
+            <li>Planifier les dates clés pour la livraison des fonctionnalités et prototypes, en tenant compte des besoins de tests et de validation.</li>
+        </ul>
+    </div>
 
 </body>
 </html>
