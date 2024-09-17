@@ -3,203 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Points de Discussion</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #222222;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-            font-size: 24px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #4caf4f80;
-        }
-        .point {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-        .point:hover {
-            transform: translateY(-5px);
-        }
-        .point h2 {
-            font-size: 18px;
-            color: #4CAF50;
-            margin-bottom: 15px;
-            border-left: 5px solid #4CAF50;
-            padding-left: 10px;
-        }
-        .point ul {
-            margin-left: 20px;
-            padding-left: 10px;
-        }
-        .point ul li {
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-    </style>
+    <title>SNSF - Suivi des Forêts</title>
+    <link rel="stylesheet" href="assets/css/fontfiveall.css">
+    <link rel="stylesheet" href="assets/css/fontsixall.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    
 </head>
 <body>
-
-    <h1>Points de Discussion</h1>
-
-    <div class="point">
-        <h2>Les niveaux daccès à la plateforme</h2>
-        <ul>
-            <li>Types de comptes : Administrateur, Agent terrain, Agent photo-interprète, Partenaire, Utilisateur public.</li>
-            <li>Droits : Accès aux données spécifiques, validation des alertes, génération de rapports</li>
-        </ul>
+    <div class="navbar">
+        <div class="navtitle">
+            <div class="drap"></div>
+            <div class="info">SYSTEME NATIONAL DE SUIVI SPATIAL DES FORETS ET D'ALERTE PRECOCE DE DEFORESTATION</div>
+            <div class="drap"></div>
+            
+        </div>
+        <div class="navels">
+            <div class="logo">SNSF-ACTUM</div>
+            <div class="nav-buttons">
+                <button data-target="activites" class="active">Activités</button>
+                <button data-target="histories" class="hist" >Historiques <span>4</span></button>
+                <button data-target="features">Fonctionnalités</button>
+                <button data-target="prototype">Prototype</button>
+                <button data-target="links">Liens</button>
+                <button data-target="presentation" >A propos</button>
+            </div>
+       </div>
     </div>
 
-    <div class="point">
-        <h2>Les types de notification et canaux</h2>
-        <ul>
-            <li>Canaux : Email, SMS, notifications push (pour l'application mobile).</li>
-            <li>Types : Alertes de déforestation, notifications de validation ou de rejet, rappels pour missions terrain</li>
-        </ul>
-    </div>
+    <div class="container">
+       <div  id="activites" class="activites section active">
+          <div class="activity-div">
+            <div class="prodiv">
+                
+                <div class="progress-containera">
+                    <div class="progress-circler">
+                        <svg width="200" height="200">
+                            <circle class="background" cx="100" cy="100" r="90"></circle>
+                            <circle class="progress" cx="100" cy="100" r="90"></circle>
+                        </svg>
+                    </div>
+                    <div class="progress-info">
+                        <div id="progress-percent">100%</div>
+                        <div class="separator"></div>
+                        <div id="progress-days">0 jours restants</div>
+                    </div>
+                </div>
 
-    <div class="point">
-        <h2>Tables et relations</h2>
-        <ul>
-            <li>Revoir la structure de la base de données, notamment les relations entre les tables clés : alertes, utilisateurs, photos,  historique...</li>
-        </ul>
-    </div>
+                <div class="progress-circle-container">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <div class="percentage">0%</div>
+                </div>
 
-    <div class="point">
-        <h2>Choix du serveur d'hébergement</h2>
-        <ul>
-            <li>AWS ou GCP selon leurs particularités</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Formulaires de rapports app et photo</h2>
-        <ul>
-            <li>Structurer les formulaires de collecte de données terrain et photo pour être à la fois complets et rapides à remplir</li>
-        </ul>
-    </div>
+            </div>
+           
+            <div class="proitems">
 
-    <div class="point">
-        <h2>Mise en place d'un serveur beta pour les prototypes</h2>
-        <ul>
-            <li>Proposer un environnement isolé pour tester les nouvelles fonctionnalités avant de les déployer en production et justifier les avancées sur le projet</li>
-        </ul>
-    </div>
+                <div class="progresser-container">
+                    <div class="progresser-bar"></div>
+                    <div class="progresser-circle"><span>0%</span></div>
+                </div>
 
-    <div class="point">
-        <h2>Sorties du modèle IA</h2>
-        <ul>
-            <li>Visualisation des alertes sous forme de points (plus précis pour petits incidents) ou de polygones (grandes zones) afin de redéfinir le workflow du projet</li>
-        </ul>
-    </div>
+                <div class="collapsible" data-section="1" data-start-date="2024-09-01" data-end-date="2024-09-10">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 1</span>
+                        <span>01/09/2024</span>
+                        <span>10/09/2024</span>
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                       </div>
 
-    <div class="point">
-        <h2>Système d'exploration des forêts</h2>
-        <ul>
-            <li>Interface pour visualiser les forêts et filtrer par zones d'intérêt avec des couches spécifiques (NDVI, état des alertes..) comme un outil de présentation et de découverte des forêts</li>
-        </ul>
-    </div>
+                        <div class="section-progress" data-section="1">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>CONCEPTION-DEFINITION DES TECHNIQUES ET PROTOTYPES</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input checked  type="checkbox" class="goal-checkbox"  data-section="1"> <span class="checkmark"></span> Définition et choix des technologies</label>
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="1"> <span class="checkmark"></span> Définition d'une charte graphique provisoire</label>
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="1"> <span class="checkmark"></span>Conception des maquettes</label>
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="1"> <span class="checkmark"></span>Conception de la plateforme de suivi du projet</label>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="point">
-        <h2>Rapport photo interprétation et agent terrain</h2>
-        <ul>
-            <li>Standardisation des rapports avec photos annotées, observations terrain et validation des alertes.</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Mise en place d'un système de vérification automatique</h2>
-        <ul>
-            <li>Automatisation partielle des vérifications d'alertes basées sur des seuils de confiance du modèle IA.</li>
-        </ul>
-    </div>
+                <div class="collapsible" data-section="2"  data-start-date="2024-09-10" data-end-date="2024-09-20">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 2</span>
+                        <span>10/09/2024</span>
+                        <span>20/09/2024</span>
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                        
+                        
+                       </div>
 
-    <div class="point">
-        <h2>Intégration d'un traceur pour les agents</h2>
-        <ul>
-            <li>Suivi GPS des agents de terrain lors de leurs missions pour une meilleure organisation et sécurité.</li>
-        </ul>
-    </div>
+                        <div class="section-progress" data-section="2">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>PHOTO-INTERPRETATION</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="2"> <span class="checkmark"></span> Conception de la base de données</label>
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="2"> <span class="checkmark"></span>Conception de l'interface utilisateur (UI)</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="2"> <span class="checkmark"></span>Développement et intégration des fonctionnalités</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="2"> <span class="checkmark"></span>Test workflow</label>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="point">
-        <h2>Système de grille pour les grandes forêts</h2>
-        <ul>
-            <li>Diviser les grandes zones forestières en sous-sections pour une gestion plus précise des alertes.</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Disponibilité des canaux de collaboration</h2>
-        <ul>
-            <li>Outils de collaboration (Slack, Teams, etc.) pour faciliter la communication entre équipes sur le projet.</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Stockage des documents et APK du système</h2>
-        <ul>
-            <li>Choisir un service de stockage centralisé pour les APK, manuels utilisateurs, et autres documents techniques.</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Système de récupération et de stockage des images</h2>
-        <ul>
-            <li>Pipeline pour récupérer les images satellites de manière régulière et les stocker efficacement.</li>
-        </ul>
-    </div>
+                <div class="collapsible" data-section="3"  data-start-date="2024-09-20" data-end-date="2024-09-27">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 3</span>
+                        <span>20/09/2024</span>
+                        <span>27/09/2024</span>
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                       
+                       </div>
+                       
 
-    <div class="point">
-        <h2>Système de calcul et visualisation des NDVI</h2>
-        <ul>
-            <li>Mettre en place des algorithmes pour calculer et afficher les indices NDVI pour une meilleure analyse des forêts.</li>
-        </ul>
-    </div>
+                        <div class="section-progress" data-section="3">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>CONSULTATION DES ALERTES</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input checked  type="checkbox" class="goal-checkbox"  data-section="3"> <span class="checkmark"></span>Conception de l'interface utilisateur (UI)</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="3"> <span class="checkmark"></span>Développement et intégration des fonctionnalités</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="3"> <span class="checkmark"></span>Test workflow</label>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="point">
-        <h2>Capture des remarques</h2>
-        <ul>
-            <li>Intégration d'un module pour permettre aux utilisateurs ordinaires et photo interprètes de laisser des commentaires ou annotations</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>OPT ou code pour les inscriptions</h2>
-        <ul>
-            <li>Ajouter une étape de vérification via OTP ou code de validation pour sécuriser les nouvelles inscriptions.</li>
-        </ul>
-    </div>
+                <div class="collapsible" data-section="4"  data-start-date="2024-09-20" data-end-date="2024-09-31">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 4</span>
+                        <span>20/09/2024</span>
+                        <span>31/09/2024</span>
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                        
+                        
+                       </div>
 
-    <div class="point">
-        <h2>Newsletter</h2>
-        <ul>
-            <li>Création d'une newsletter pour tenir les utilisateurs informés des nouvelles fonctionnalités et alertes</li>
-        </ul>
-    </div>
+                        <div class="section-progress" data-section="4">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>APPLICATION MOBILE DE VERIFICATION TERRAIN</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input checked type="checkbox" class="goal-checkbox"  data-section="4"> <span class="checkmark"></span>Conception de l'interface utilisateur (UI)</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="4"> <span class="checkmark"></span>Développement et intégration des fonctionnalités</label>
+                            <label><input  type="checkbox" class="goal-checkbox"  data-section="4"> <span class="checkmark"></span>Hébergement test</label>
+                            <label><input  type="checkbox" class="goal-checkbox"  data-section="4"> <span class="checkmark"></span>Test workflow</label>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="point">
-        <h2>Besoins en données</h2>
-        <ul>
-            <li>Identifier les sources de données utiles (images satellites, données shp, limites forestières, données d'occupation des sols...) et planifier leur intégration.</li>
-        </ul>
-    </div>
 
-    <div class="point">
-        <h2>Livrables et délais</h2>
-        <ul>
-            <li>Planifier les dates clés pour la livraison des fonctionnalités et prototypes, en tenant compte des besoins de tests et de validation (juste une revision)</li>
-        </ul>
+                
+
+                <div class="collapsible" data-section="5"  data-start-date="2024-09-31" data-end-date="2024-10-07">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 5</span>
+                        <span>31/09/2024</span>
+                        <span>07/10/2024</span>
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                        
+                        
+                       </div>
+
+                        <div class="section-progress" data-section="5">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>TABLEAU DE BORD</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Conception de l'interface utilisateur (UI)</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Développement et intégration des fonctionnalités</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Test workflow</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible" data-section="6"  data-start-date="2024-10-07" data-end-date="2024-10-31">
+                    <h3>
+                       <div class="collapsible-tilte"> 
+                        <span>MODULE 6</span>
+                        <span>07/10/2024</span>
+                        <span>14/10/2024</span> 
+                        <span class="duration"></span>
+                        <div class="dator-infos">
+                            <div class="status-indicator-wrapper">
+                                <div class="progressday-circle"></div> 
+                                <div class="status-indicator"></div> 
+                            </div>
+                        </div>
+                        
+                        
+                       </div>
+
+                        <div class="section-progress" data-section="6">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="circle"d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </h3>
+                    <div class="content">
+                        <div class="description">
+                            <p>DEPLOIEMENT</p>
+                        </div>
+                        <div class="checkbox-container">
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Configuration des serveurs et bases de données</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Déploiement test</label>
+                            <label><input type="checkbox" class="goal-checkbox"  data-section="5"> <span class="checkmark"></span>Déploiement prod</label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="pro_infos">
+                <div class="pro_details_div">
+                    <div class="project-container">
+                        <h1 class="project-title"><i class="fas fa-project-diagram"></i> DATES IMPORTANTES</h1>
+                        <div class="project-details">
+                            <div class="project-detail">
+                                <i class="fas fa-calendar-day"></i>
+                                <span><span class="detail-label">Date de début :</span> <span class="detail-value">01/09/2024</span></span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-calendar-day"></i>
+                                <span><span class="detail-label">Date de fin :</span> <span class="detail-value">31/10/2024</span></span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span><span class="detail-label">Durée du projet :</span> <span class="detail-value">60 jours</span></span>
+                            </div>
+                
+                            <div class="project-detail">
+                                <i class="fas fa-calendar-check"></i>
+                                <span><span class="detail-label">Déploiement test :</span> <span class="detail-value">15/10/2024</span></span>
+                            </div>
+                            <div class="project-detail">
+                                <i class="fas fa-calendar-check"></i>
+                                <span><span class="detail-label">Déploiement prod :</span> <span class="detail-value">31/10/2024</span></span>
+                            </div>
+
+                            <div class="project-detail">
+                                <i class="fas fa-book"></i>
+                                <span><span class="detail-label">Documentations :</span> <span class="detail-value">15/11/2024</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+             
+
+            </div>
+
+            
+        </div>
+
+        
+      <div class="activity-legend">
+      
+          <div class="activity-legend-container">
+                <div class="legend-item">
+                    <div id="checked-total" class="leg-bar"></div>
+                </div>
+                <div class="legend-item">
+                    <span class="leg-info leg-vert">Terminé</span>
+                    <div id="checked-vs-total" class="leg-bar leg-vert"></div>
+                </div>
+                <div class="legend-item">
+                    <span class="leg-info leg-bleu">En cours</span>
+                    <div  class="leg-bar leg-bleu"></div>
+                </div>
+                <div class="legend-item">
+                    <span class="leg-info leg-gris">Non debuté-In délai</span>
+                    <div id="pending" class="leg-bar leg-gris"></div>
+                </div>
+                <div class="legend-item">
+                    <span class="leg-info leg-orange">Débuté-Hors délai</span>
+                    <div id="out-of-time"  class="leg-bar leg-orange"></div>
+                </div>
+                <div class="legend-item">
+                    <span class="leg-info leg-rouge">Non debuté-hors délai</span>
+                    <div id="out-of-time-non"  class="leg-bar leg-rouge"></div>
+                </div>
+         </div>
+      
+      </div>
+
+       </div>
+
+       
+       
+       
+       
+       <div id="histories" class="section">
+        <div class="histo-legend"> 
+            <h2>Historique des Activités</h2> 
+        </div>
+        <!-- ----------------------------- -->
+        <div class="histo-container">
+            <div class="activity-chain" id="activities-list">
+                <!-- injection-->
+            </div>
+            <div id="no-activities" class="no-activities">
+                Aucun historique d'activités disponible.
+            </div>
+        </div>
+       </div>
+
+
+
+        <div id="links" class="section">
+            <h2>Liens</h2>
+            
+            <div class="linkers">
+                <div class="link_items"> <div class="link_img"><i class="fab fa-github"></i></div> <li><a href="https://github.com" target="_blank">GitHub</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-trello"></i></div> <li><a href="https://trello.com" target="_blank">Trello</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-slack"></i></div> <li><a href="https://slack.com" target="_blank">Slack</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-google-drive"></i></div> <li><a href="https://www.drive.google.com" target="_blank">Drive</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-figma"></i></div> <li><a href="https://www.figma.com" target="_blank">Figma</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-android"></i></div> <li><a href="https://www.figma.com" target="_blank">APK Mobile</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fab fa-aws"></i></div> <li><a href="https://www.figma.com" target="_blank">AWS Cloud</a></li></div>
+            </div>
+
+            <br><br>
+            <h2>Documents</h2>
+            
+            <div class="linkers linkdocs">
+                <div class="link_items"> <div class="link_img"><i class="fas fa-file-pdf"></i></div> <li><a href="https://slack.com" target="_blank">Charte Graphique</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fas fa-file-pdf"></i></div> <li><a href="https://www.drive.google.com" target="_blank">Guide technique</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fas fa-file-pdf"></i></div> <li><a href="https://www.figma.com" target="_blank">Cahier d'activités</a></li></div>
+                <div class="link_items"> <div class="link_img"><i class="fas fa-file-pdf"></i></div> <li><a href="https://www.figma.com" target="_blank">Infos BD</a></li></div>
+            </div>
+           
+        </div>
+
+        
+
+        <div id="prototype" class="section">
+            <div class="proto_container">
+                <div class="banner">
+                    <h2>PROTOTYPES FONCTIONNELS DES DIFFERENTS MODULES</h2>
+                </div>
+            
+                <div class="modules">
+                   
+                    <div class="module-card">
+                        <h2><i class="fa fas fa-robot"></i> Surveillance des forêts IA </h2>
+                        <p>Génération d'alertes de déforestation grâce à l'intelligence artificielle</p>
+                        <button class="modbtn"><a href="#">Accéder au proto</a></button>
+                    </div>
+                    <div class="module-card">
+                        <h2><i class="fa fas fa-camera-retro"></i> Photo Interprétation</h2>
+                        <p>Analyse des images satellites pour vérifier les alertes.</p>
+                        <button class="modbtn"><a href="#">Accéder au proto</a></button>
+                    </div>
+                    <div class="module-card">
+                        <h2><i class="fa fas fa-file-export"></i> Consultation des alertes</h2>
+                        <p>Accédez aux données et rapports détaillés sur les alertes de defo.</p>
+                        <button class="modbtn"><a href="proto/consultation.html">Accéder au proto</a></button>
+                    </div>
+                    <div class="module-card">
+                        <h2><i class="fa fa-dashboard"></i> Tableau de Bord</h2>
+                        <p>Gestion administrative et statistiques du projet.</p>
+                        <button class="modbtn"><a href="#">Accéder au proto</a></button>
+                    </div>
+                    <div class="module-card">
+                        <h2><i class="fa fa-mobile"></i> Application Mobile</h2>
+                        <p>Accédez au l'application pour les missions terrain.</p>
+                        <button class="modbtn"><a href="#">Accéder au proto</a></button>
+                        
+                    </div>
+                    <div class="module-card">
+                        <h2><i class="fa fa-mobile"></i>  Services payants</h2>
+                        <p>Accédez au l'application pour les missions terrain.</p>
+                        <button class="modbtn"><a href="#">Accéder au proto</a></button>
+                        
+                    </div>
+                </div>
+
+                
+
+            </div>
+      
+        </div>
+
+
+
+        <div id="features" class="section">
+            <h2>Fonctionnalités</h2>
+
+                <div class="collap-container">
+                    
+                    <div class="card-function" data-aos="fade-up">
+                        <div class="card-title">
+                          <i class="fas fa-brain"></i>  Génération Alertes
+                        </div>
+                        <div class="card-description">
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Surveillance des sites forestiers</div>
+                                <div class="collapsibleur-content">Suivi continu des zones forestières en utilisant des images satellites.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Analyse des images</div>
+                                <div class="collapsibleur-content">Examen des images satellites pour détecter des anomalies.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Détection des changements</div>
+                                <div class="collapsibleur-content">Identification des changements significatifs dans les zones forestières.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Génération des alertes</div>
+                                <div class="collapsibleur-content">Création d'alertes basées sur les analyses effectuées.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-function" data-aos="fade-up">
+                        <div class="card-title">
+                          <i class="fas fa-camera"></i>  Photo Interprétation
+                        </div>
+                        <div class="card-description">
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Analyse des images satellite multi-sources</div>
+                                <div class="collapsibleur-content">Évaluation des images provenant de différentes sources.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Comparaison chronologique des images</div>
+                                <div class="collapsibleur-content">Analyse des images à différents moments pour observer les changements.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Détection des zones à faible indice</div>
+                                <div class="collapsibleur-content">Identification des zones avec des indices faibles.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Annotations et rapports</div>
+                                <div class="collapsibleur-content">Ajout d'annotations et création de rapports détaillés.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Confirmation ou infirmation des alertes</div>
+                                <div class="collapsibleur-content">Validation ou rejet des alertes générées par l'IA.</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-function" data-aos="fade-up">  
+                        <div class="card-title">
+                            <i class="fas fa-mobile-alt"></i> Vérification Terrain
+                        </div>
+                        <div class="card-description">
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Voirb les rapports des alertes photo-interprétées</div>
+                                <div class="collapsibleur-content">Consultation des rapports des alertes via l'application mobile.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Annotations, remarques et photos</div>
+                                <div class="collapsibleur-content">Ajout d'annotations, remarques et photos sur le terrain.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Navigationn par itinéraire</div>
+                                <div class="collapsibleur-content">Fonctionnalité de navigation pour les missions sur le terrain.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Travail offline et synchronisation</div>
+                                <div class="collapsibleur-content">Utilisation hors ligne avec synchronisation automatique des données.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Confirmation ou infirmation des résultats des photos interprètes</div>
+                                <div class="collapsibleur-content">Validation ou rejet des résultats obtenus par les photos interprètes.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-function" data-aos="fade-up">
+                        <div class="card-title">
+                           <i class="fas fa-bell"></i> Consultation Alertes
+                        </div>
+                        <div class="card-description">
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Accès aux alertes générées et analysées</div>
+                                <div class="collapsibleur-content">Visualisation des alertes générées et analysées.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Remarques et filtres</div>
+                                <div class="collapsibleur-content">Possibilité de faire des remarques et filtrer les alertes.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Statistiques et export des données</div>
+                                <div class="collapsibleur-content">Visualisation des statistiques et exportation des données.</div>
+                            </div>
+                            <div class="collapsibleur" onclick="toggleCollapse(this)">
+                                <div class="collapsibleur-title">Visualisation sur carte</div>
+                                <div class="collapsibleur-content">Exploration des alertes sur une carte interactive.</div> </div> <div class="collapsibleur" onclick="toggleCollapse(this)"> <div class="collapsible-title">Exploration des forêts</div> <div class="collapsibleur-content">Interface pour explorer les zones forestières.</div> </div> </div> </div>
+                
+                <div class="card-function" data-aos="fade-up">
+                    <div class="card-title">
+                     <i class="fas fa-tachometer-alt"></i>   Tableau de board
+                    </div>
+                    <div class="card-description">
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Visualisation globale des données et du workflow</div>
+                            <div class="collapsibleur-content">Affichage d'une vue d'ensemble des données et du processus.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Statistiques détaillées</div>
+                            <div class="collapsibleur-content">Affichage de statistiques détaillées sur les alertes.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Assignation des tâches</div>
+                            <div class="collapsibleur-content">Gestion des tâches et attribution aux utilisateurs.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Paramétrage du workflow</div>
+                            <div class="collapsibleur-content">Configuration et gestion des flux de travail.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Export et import des données</div>
+                            <div class="collapsibleur-content">Fonctionnalités d'importation et d'exportation des données.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Génération des rapports automatiques</div>
+                            <div class="collapsibleur-content">Création automatique de rapports basés sur les données.</div>
+                        </div>
+                        <div class="collapsibleur" onclick="toggleCollapse(this)">
+                            <div class="collapsibleur-title">Gestion des données</div>
+                            <div class="collapsibleur-content">Administration et gestion des données collectées.</div>
+                        </div>
+                    </div>
+                </div>
+
+              
+                    
+                </div>
+            
+    
+        </div>
+
+          
+
+
+
+
+        <div id="presentation" class="section">
+            <h2>Présentation du Projet SNSF</h2>
+            <p>
+                <!-- Le <span class="highlight">Système National de Suivi Spatial des Forêts et d'Alerte Précoce de la Déforestation (SNSF)</span> est une initiative
+                visant à renforcer la gestion des ressources forestières en Côte d'Ivoire. Le projet utilise des technologies avancées pour surveiller,
+                détecter et réagir aux menaces de déforestation. -->
+            </p> <br> <br><br><br><br>
+
+            <h2>Contexte</h2><br><br><br>
+            <h2>Objectifs</h2> <br><br><br>
+            <ul><br>
+                <!-- <li><span class="highlight">Surveillance et Détection</span> : Utilisation d'images satellites et d'indices de végétation.</li>
+                <li><span class="highlight">Alerte Précoce</span> : Génération d'alertes automatisées pour les actions rapides.</li>
+                <li><span class="highlight">Vérification sur le Terrain</span> : Validation des alertes via une application mobile.</li>
+                <li><span class="highlight">Analyse et Reporting</span> : Outils d'analyse pour le traitement des données et la génération de rapports.</li> -->
+            </ul> <br> <br>
+
+            <h2>Workflow du Projet SNSF</h2>
+            <ul><br><br><br>
+                <!-- <li><span class="highlight">Génération d'Alerte</span> : Analyse des images satellites par IA pour détecter les anomalies.</li>
+                <li><span class="highlight">Visualisation des Alertes</span> : Examen des alertes sur une plateforme web.</li>
+                <li><span class="highlight">Vérification sur le Terrain</span> : Inspection des alertes via une application mobile.</li>
+                <li><span class="highlight">Tableau de Bord</span> : Vue d'ensemble des alertes et des statistiques sur la gestion des forêts.</li> -->
+            </ul>
+        </div>
     </div>
 
 </body>
+<script src="assets/js/index.js"></script>
 </html>
