@@ -1,0 +1,42 @@
+map.on('dragend',function() {
+    controlLoader.show();
+    setTimeout(function() {
+        controlLoader.hide();
+    },1000);
+});
+
+
+
+
+
+var controlLoader = L.control.loader().addTo(map);
+function loader() {
+    controlLoader.show();
+    setTimeout(function() {
+        controlLoader.hide();
+    },2000);
+};
+window.addEventListener('load',loader)
+
+
+
+
+## example of usage with jquery ajax
+
+```javascript
+const controlLoader = L.control.loader().addTo(map);
+$.ajaxSetup({
+ beforeSend: e => {
+    controlLoader.show()
+ },
+ complete: e => {
+    controlLoader.hide()
+ }
+});
+const geoLayer = L.geoJson([]).addTo(map);
+
+$.getJSON(`mygeojson.json`, geoj => {
+
+	geoLayer.addData(geoj);
+
+});
