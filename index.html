@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Plantations</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .header { background: #2e7d32; color: white; text-align: center; padding: 10px; font-size: 20px; }
+        .container { padding: 15px; text-align: center; }
+        .section { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { font-size: 18px; color: #2e7d32; }
+        #map { height: 400px; border-radius: 5px; }
+        button { background: #2e7d32; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #1b5e20; }
+        .warning { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header">📲 Suivi des Plantations</div>
+
+    <div class="container">
+        <div class="section">
+            <h2>🗺️ Carte des Plantations (Grille de 1ha & 40 plants)</h2>
+            <div id="map"></div>
+            <br>
+            <button onclick="checkDistances()">✅ Vérifier distances</button>
+            <p id="message" class="warning"></p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([5.354, -4.008], 18);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var topLeft = [5.354, -4.008]; // Coin supérieur gauche
+        var cellSize = 0.0009;  // ~100m -> 1° ≈ 111km donc 100m ≈ 0.0009°
+        var rows = 5, cols = 8;
+        var markers = [];
+
+        // Ajout des plants sur la carte
+        for (var i = 0; i < rows; i++) {
+            for (var j = 0; j < cols; j++) {
+                var lat = topLeft[0] - (i * cellSize);
+                var lng = topLeft[1] + (j * cellSize);
+
+                var marker = L.marker([lat, lng]).addTo(map)
+                    .bindPopup(`<b>Plant ${i * cols + j + 1}</b><br>État: Sain`);
+
+                markers.push(marker);
+            }
+        }
+
+        // Fonction pour vérifier la distance entre les plants
+        function checkDistances() {
+            var violations = 0;
+            var minDistance = 0.000036; // 4m en degrés (~1m ≈ 0.000009°)
+
+            // Vérification de chaque plant par rapport aux autres
+            for (var i = 0; i < markers.length; i++) {
+                for (var j = i + 1; j < markers.length; j++) {
+                    var lat1 = markers[i].getLatLng().lat;
+                    var lng1 = markers[i].getLatLng().lng;
+                    var lat2 = markers[j].getLatLng().lat;
+                    var lng2 = markers[j].getLatLng().lng;
+
+                    var distance = Math.sqrt(Math.pow(lat2 - lat1, 2) + Math.pow(lng2 - lng1, 2));
+
+                    if (distance < minDistance) {
+                        violations++;
+                    }
+                }
+            }
+
+            // Affichage du résultat
+            var message = document.getElementById("message");
+            if (violations > 0) {
+                message.innerHTML = `⚠️ ${violations} plantes sont trop proches ! (< 4m)`;
+            } else {
+                message.innerHTML = "✅ Toutes les distances sont respectées.";
+            }
+        }
+    </script>
+
+</body>
+</html>
